@@ -3,4 +3,5 @@
 练习了查看日志git log --oneline的使用
 练习退回日志git reset --hard Head~0的使用
 练习回到具体的某个版本git reset --hard [版本号]
-练习创建分支
+练习创建分支，切换分支
+练习合并分支，删除分支
