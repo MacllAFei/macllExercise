@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间日期篇--显示时钟</title>
+	<style>
+		p{
+			font-size: 20px;
+			color: purple;
+		}
+		#box{
+			font-size: 26px;
+			font-family: Arial;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<!-- 显示时钟 -->
+		<form action="" name="form">
+			<p>时间日期篇--显示时钟</p>
+			<hr width="300"><br>
+			<input type="text" id="textVal"><br><br>
+			<label ><input type="radio" id="textV24" name="time" onclick="showTime()">24 Hour Time</label><br>
+			<label ><input type="radio" id="textV12" name="time" onclick="showTime()">12 Hour Time</label>
+			<br /><br/>
+		</form>
+		
+	<script>
+		//处理小时
+		function showTheHours(hours) {
+			if (isHoursTime() || hours > 0 && hours < 13) {
+				 return (hours);
+			}else if(hours == 0) {
+				 return (12);
+			}else {
+				 return (hours - 12);
+			}
+		}
+		// console.log(showTheHours(14));  测试showTheHours()函数
+
+		// 处理分钟、秒的数位
+		function showZeroFilled(a) {
+			if (a <= 9) {
+				a = "0" + a;
+			}
+			return a
+		}
+		// console.log(showZeroFilled(9)); 测试showZeroFilled()函数
+		
+		// 判断是选择24小时制还是12小时制
+		function isHoursTime() {
+			if (document.form.time[0].checked) {
+				return true;
+			}else {
+				return false;
+			}
+		}
+		console.log(isHoursTime())
+		
+		// 判断是否显示am和pm
+		function showAMPM() {
+			if (isHoursTime()) {
+				return ("");
+			}
+			if (data.getHours() < 12) {
+				return (" Am");
+			}
+			return (" Pm");
+			
+		}
+		// console.log(showAMPM("12 Hour Time"));
+
+		// 在输入框显示时间
+		function showTime() {
+			data = new Date();
+			var	hours = data.getHours(),
+				min = data.getMinutes(),
+				sec = data.getSeconds();
+			var	textVal = document.getElementById("textVal");
+			textVal.value = showTheHours(hours) + ":" + showZeroFilled(min) + ":" + showZeroFilled(sec) + showAMPM();
+			setTimeout("showTime()", 1000);
+		}
+	</script>
+	</center>
+	
+</body>
+</html>

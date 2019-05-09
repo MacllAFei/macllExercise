@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间日期篇--显示日期</title>
+</head>
+<body>
+	<center>
+	<h2>时间日期篇--显示日期</h2>
+	<hr width="300">
+	<div id="date"></div>
+	<script>
+		var data = new Date(),
+			year = data.getFullYear(),
+			month = data.getMonth(),
+			ri = data.getDate();
+		var isnDay = new Array ("星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日");
+			text = document.getElementById("date");
+			text.innerHTML = "今天是：" + year + "年" + month + "月" + ri + "日" + isnDay[data.getDay()];
+	</script>
+	</center>
+</body>
+</html>
