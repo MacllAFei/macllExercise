@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间日期篇--距离某天时间</title>
+	<style>
+		h2{
+			color: red;
+			font-size: 16px;
+		}
+		hr{
+			width: 300px;
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<h2>时间日期篇--距离某天时间</h2>
+		<hr />
+		<br />
+		<br />
+		<div id="box"></div>
+		<script>
+			var text = document.getElementById("box"),
+				nowDay = new Date(),
+				spacilDay = new Date("january 01, 2017"),
+				// 获得现在时间距离1970年1月1日的毫秒数与2017年1月1日距离1979年1月1日的毫秒数的差
+				timeOld = (nowDay.getTime() - spacilDay.getTime()),
+				sectimeOld = timeOld / 1000;  //将毫秒转换为秒
+				// secondsOld = Math.floor(sectimeOld);
+				console.log(sectimeOld);
+			text.innerHTML = "2017年已经过去了" + "天" + "时" + "分" + "秒啦！";
+		</script>
+	</center>
+</body>
+</html>
